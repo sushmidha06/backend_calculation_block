@@ -1,7 +1,11 @@
 from fastapi import FastAPI, HTTPException
 from pydantic import BaseModel, Field
 
-app = FastAPI()
+app = FastAPI(title="Carbon Credits Calculator", description="API for calculating carbon credits from NDVI data")
+
+@app.get("/")
+def root():
+    return {"message": "Carbon Credits Calculator API is running", "docs": "/docs"}
 
 # Constants
 CF = 0.475       # Carbon Fraction
